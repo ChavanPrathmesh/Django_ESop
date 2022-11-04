@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded p-4">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="post">
+                {% csrf_token %}
+
+                {% if error %}
+                <!-- error message -->
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+
+                <!-- first name -->
+                <div class="mb-3">
+                    <label for="" class="form-label">First Name</label>
+                    <input type="text" name="firstname" id="" class="form-control" placeholder="Jerry" value="{{values.first_name}}">
+                </div>
+
+                <!-- last name -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Last Name</label>
+                    <input type="text" name="lastname" id="" class="form-control" placeholder="Chavan" value="{{values.last_name}}">
+                </div>
+                
+                <!-- phone -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Phone</label>
+                    <input type="text" name="phone" id="" class="form-control" placeholder="9898989898" value="{{values.phone}}">
+                </div>
+
+                <!-- email -->
+                <div class="mb-3">
+                  <label for="" class="form-label">Email</label>
+                  <input type="email" name="email" id="" class="form-control" placeholder="jerrychavan0509@gmail.com" value="{{values.email}}">
+                </div>
+
+                <!-- password -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" name="password" id="" class="form-control" placeholder="********" >
+                </div>
+
+                <!-- check password -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Confirm Password</label>
+                    <input type="password" name="confpassword" id="" class="form-control" placeholder="********" >
+                </div>
+
+                  <div class="mb-3">
+                    <input class="btn btn-sm btn-info" type="submit" value="Creat an Account">
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
